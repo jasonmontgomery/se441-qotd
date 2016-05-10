@@ -28,5 +28,17 @@ class AttributionSpec extends Specification {
 		then: 'validation should fail'
 		!p.validate()
 		
+		when: 'text is null'
+		def q = new Attribution(name: null)
+		
+		then: 'validation should fail'
+		!q.validate()
+		
+		when: 'text is valid'
+		def r = new Attribution(name: 'Anonymous')
+		
+		then: 'validation should pass'
+		r.validate()
+		
 	}
 }
